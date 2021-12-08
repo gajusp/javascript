@@ -1,24 +1,28 @@
 let throttlingBtn = document.getElementById('throttlingBtn');
 
-const throttle = (fn, delay) => {
+const throttle = (fn, threshold, scope) => {
   let lastClick = 0;
 
   return (...arg) => {
     const now = new Date().getTime();
 
-    if (now - lastClick < delay) {
+    if (now - lastClick < threshold) {
       return;
     }
 
     lastClick = now;
 
-    return fn(...arg);
+    return fn.apply(scope, ...arg);
   };
 };
 
 throttlingBtn.addEventListener(
   'click',
-  throttle((e) => {
-    console.log('Throttling button clicked');
-  }, 5000)
+  throttle(
+    () => {
+      console.log('Throttling button clicked');
+    },
+    5000,
+    this
+  )
 );
