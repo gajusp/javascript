@@ -26,7 +26,7 @@ debouncingBtn.addEventListener(
 );
 
 
-
+/*
 Method 2
 
 
@@ -44,3 +44,5 @@ function search(query){
 }document.querySelector(".search").addEventListener("input",(e)=>{
   magicFunction(e.target.value);
 });
+
+*/
