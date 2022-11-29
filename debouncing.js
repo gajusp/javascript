@@ -24,3 +24,23 @@ debouncingBtn.addEventListener(
     this
   )
 );
+
+
+
+Method 2
+
+
+let count = 0;
+function search(query){
+   // some api call
+   console.log("result",count++)}const magicFunction = debounce(search,300);function debounce(func, delay){
+  let timer;
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+}document.querySelector(".search").addEventListener("input",(e)=>{
+  magicFunction(e.target.value);
+});
